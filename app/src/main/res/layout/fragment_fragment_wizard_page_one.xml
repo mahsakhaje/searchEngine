@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.WizardActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="30dp"
+        android:elevation="30dp">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="@drawable/searchinedittext" />
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.card.MaterialCardView
+        app:cardCornerRadius="30dp"
+        android:layout_width="300dp"
+        android:padding="20dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardview_one"
+        android:layout_margin="30dp"
+        android:layout_centerHorizontal="true"
+        >
+
+        <TextView
+            android:textColor="@color/colorTextColor"
+            android:fontFamily="casual"
+            android:padding="10dp"
+            android:text="@string/condition1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.card.MaterialCardView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/next__24dp" />
+</RelativeLayout>
