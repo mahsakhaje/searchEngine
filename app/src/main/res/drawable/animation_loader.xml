@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><animated-vector tools:ignore="NewApi" android:drawable="@drawable/animations_shapes" xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <target android:animation="@anim/animations" android:name="scaleGroup"/>
+
+    <target android:animation="@anim/animations1" android:name="rotationGroup"/>
+
+    <target android:animation="@anim/animations2" android:name="translateGroup"/>
+
+</animated-vector>

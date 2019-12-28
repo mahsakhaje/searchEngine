@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
@@ -14,22 +15,30 @@ import android.os.Bundle;
 
 import com.example.khajehnamaghi.R;
 import com.example.khajehnamaghi.databinding.ActivityWizardBinding;
+import com.example.khajehnamaghi.viewModel.MyViewModel;
 
 public class WizardActivity extends AppCompatActivity {
     ViewPager mViewPager;
     ActivityWizardBinding mBinding;
     public final static int NUMBER_OF_PAGES = 2;
     ViewPagerAdaptor mAdapter;
+    MyViewModel myViewModel;
 
     public static Intent newIntent(Context context) {
         return new Intent(context, WizardActivity.class);
+    }
+
+    public ViewPagerAdaptor getmAdapter() {
+        return mAdapter;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_wizard);
-        mAdapter=new ViewPagerAdaptor(getSupportFragmentManager());
+        myViewModel = ViewModelProviders.of(this).get(MyViewModel.class);
+        mBinding.setLifecycleOwner(this);
+        mAdapter = new ViewPagerAdaptor(getSupportFragmentManager());
         mViewPager = mBinding.viewPager;
         mViewPager.setAdapter(mAdapter);
 

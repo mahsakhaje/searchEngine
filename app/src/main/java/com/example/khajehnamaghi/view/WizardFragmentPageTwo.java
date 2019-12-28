@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +14,13 @@ import android.view.ViewGroup;
 
 import com.example.khajehnamaghi.R;
 import com.example.khajehnamaghi.databinding.FragmentWizardFragmentPageTwoBinding;
+import com.example.khajehnamaghi.viewModel.MyViewModel;
 
 
 public class WizardFragmentPageTwo extends Fragment {
 
     FragmentWizardFragmentPageTwoBinding mBinding;
+    MyViewModel mViewModel;
 
     public WizardFragmentPageTwo() {
         // Required empty public constructor

@@ -57,6 +57,7 @@ public class ResultRepository {
         getmCall().enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
+                if(response.body()!=null)
                 result.concat(response.body().toString());
                 Log.d(TAG,result);
             }

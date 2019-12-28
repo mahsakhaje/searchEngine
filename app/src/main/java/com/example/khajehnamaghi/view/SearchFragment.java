@@ -1,6 +1,9 @@
 package com.example.khajehnamaghi.view;
 
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
@@ -10,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.khajehnamaghi.R;
 import com.example.khajehnamaghi.databinding.FragmentSearchBinding;
@@ -45,12 +49,23 @@ public class SearchFragment extends Fragment {
         mBinding.searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!mBinding.searchEt.getText().toString().isEmpty())
-                myViewModel.onSearchBtnClick(mBinding.searchEt.getText().toString());
+                if (!isNetworkConnected()) {
+                    Toast.makeText(getActivity(), "you should be online first", Toast.LENGTH_LONG).show();
+                } else {
+                    if (!mBinding.searchEt.getText().toString().isEmpty())
+                        myViewModel.onSearchBtnClick(mBinding.searchEt.getText().toString());
+                }
             }
         });
 
         return mBinding.getRoot();
+    }
+
+    public boolean isNetworkConnected() {
+        ConnectivityManager conMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
+        return netInfo != null &&
+                netInfo.isConnectedOrConnecting();
     }
 
 }

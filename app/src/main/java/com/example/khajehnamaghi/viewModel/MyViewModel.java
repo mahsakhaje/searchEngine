@@ -23,9 +23,14 @@ public class MyViewModel extends AndroidViewModel {
         return mNextButtonState;
     }
 
+    public void setmNextButtonState(boolean b) {
+        mNextButtonState.setValue(b
+        );
+    }
+
     public void onSearchBtnClick(String query) {
 
-        mRepository=ResultRepository.getInstance(query);
+        mRepository = ResultRepository.getInstance(query);
         mRepository.getResult();
 
 

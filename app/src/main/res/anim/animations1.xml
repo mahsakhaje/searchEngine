@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <set android:shareInterpolator="true" xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator android:valueType="floatType" android:repeatMode="reverse" android:repeatCount="infinite" android:valueTo="1" android:valueFrom="0" android:propertyName="scaleX" android:duration="600"/>
+    <objectAnimator android:valueType="floatType" android:repeatMode="reverse" android:repeatCount="infinite" android:valueTo="1" android:valueFrom="0" android:propertyName="scaleY" android:duration="600"/>
+
+</set>
