@@ -1,7 +1,10 @@
 package com.example.khajehnamaghi.view;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -9,10 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.khajehnamaghi.R;
+import com.example.khajehnamaghi.databinding.FragmentWizardFragmentPageTwoBinding;
 
 
 public class WizardFragmentPageTwo extends Fragment {
 
+    FragmentWizardFragmentPageTwoBinding mBinding;
 
     public WizardFragmentPageTwo() {
         // Required empty public constructor
@@ -36,8 +41,21 @@ public class WizardFragmentPageTwo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_wizard_fragment_page_two, container, false);
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_wizard_fragment_page_two, container, false);
+        mBinding.start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().startActivity(SearchActivity.newIntent(getActivity()));
+            }
+        });
+
+        return mBinding.getRoot();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+    }
 }
 

@@ -29,6 +29,7 @@ public class SplashActivity extends AppCompatActivity {
 
                 Intent intent= WizardActivity.newIntent(SplashActivity.this);
                 startActivity(intent);
+                finish();
             }
         }, DELAY_MILLIS);
 
